@@ -600,7 +600,7 @@ greenMessage "Searching latest TS3-Client build for hardware type $MACHINE with 
 
 VERSION="3.6.2"
 
-DOWNLOAD_URL_VERSION="https://files.teamspeak-services.com/releases/client/$VERSION/TeamSpeak3-Client-linux_$ARCH-$VERSION.run"
+DOWNLOAD_URL_VERSION="https://files.teamspeak-services.com/releases/client/3.6.2/TeamSpeak3-Client-linux_amd64-3.6.2.run"
  STATUS=$(wget --server-response -L $DOWNLOAD_URL_VERSION 2>&1 | awk '/^  HTTP/{print $2}')
   if [ "$STATUS" == "200" ]; then
     DOWNLOAD_URL=$DOWNLOAD_URL_VERSION
