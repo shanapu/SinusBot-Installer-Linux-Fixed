@@ -76,7 +76,7 @@ fi
 
 # Update notify
 
-cyanMessage "Checking for the latest installer version"
+cyanMessage "Checking for the latest installer "
 if [[ -f /etc/centos-release ]]; then
   yum update
   yum -y -q install wget
@@ -96,7 +96,7 @@ if [ $(uname -r | cut -c1-1) < 3 ]; then
 fi
 
 # If the linux distribution is not debian and centos, then exit
-if [ ! -f /etc/debian_version ] && [ ! -f /etc/centos-release ]; then
+if [ ! -f /etc/debian_ ] && [ ! -f /etc/centos-release ]; then
   errorExit "Not supported linux distribution. Only Debian and CentOS are currently supported"!
 fi
 
@@ -108,7 +108,7 @@ redMessage "Installer by Philipp Esswein | For Ubuntu 22.04+ and Debian 11+ by C
 sleep 1
 magentaMessage "Please rate this script at: https://forum.sinusbot.com/resources/sinusbot-installer-script.58/"
 sleep 1
-yellowMessage "You're using installer $Instversion"
+yellowMessage "You're using installer $Inst"
 
 # selection menu if the installer should install, update, remove or pw reset the SinusBot
 redMessage "What should the installer do?"
@@ -260,7 +260,7 @@ if [ "$INSTALL" != "Rem" ]; then
     fi
   fi
 
-  if [[ -f /etc/debian_version ]]; then
+  if [[ -f /etc/debian_ ]]; then
     greenMessage "Check if lsb-release and debconf-utils is installed..."
     apt-get -qq update
     apt-get -qq install debconf-utils -y
@@ -296,7 +296,7 @@ fi
 if [ "$INSTALL" != "Rem" ]; then
   if [ -z "$OS" ]; then
     errorExit "Error: Could not detect OS. Currently only Debian, Ubuntu and CentOS are supported. Aborting"!
-  elif [ -z "$OS" ] && ([ "$(cat /etc/debian_version | awk '{print $1}')" == "7" ] || [ $(cat /etc/debian_version | grep "7.") ]); then
+  elif [ -z "$OS" ] && ([ "$(cat /etc/debian_ | awk '{print $1}')" == "7" ] || [ $(cat /etc/debian_ | grep "7.") ]); then
     errorExit "Debian 7 isn't supported anymore"!
   fi
 
@@ -540,7 +540,7 @@ fi
 
 # Private usage only!
 
-redMessage "This SinusBot version is only for private use! Accept?"
+redMessage "This SinusBot  is only for private use! Accept?"
 
 OPTIONS=("No" "Yes")
 select OPTION in "${OPTIONS[@]}"; do
@@ -568,7 +568,7 @@ fi
 
 # Update packages or not
 
-redMessage 'Update the system packages to the latest version? (Recommended)'
+redMessage 'Update the system packages to the latest ? (Recommended)'
 
 OPTIONS=("Yes" "No")
 select OPTION in "${OPTIONS[@]}"; do
@@ -602,7 +602,7 @@ if [ "$DISCORD" == "false" ]; then
 
 greenMessage "Searching latest TS3-Client build for hardware type $MACHINE with arch $ARCH."
 
-VERSION="3.5.6"
+VERSION="3.6.2"
 
 DOWNLOAD_URL_VERSION="https://dl.4players.de/ts/releases/$VERSION/TeamSpeak3-Client-linux_$ARCH-$VERSION.run"
  STATUS=$(wget --server-response -L $DOWNLOAD_URL_VERSION 2>&1 | awk '/^  HTTP/{print $2}')
