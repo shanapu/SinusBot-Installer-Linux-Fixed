@@ -95,10 +95,6 @@ if [ $(uname -r | cut -c1-1) < 3 ]; then
   errorExit "Linux kernel unsupportet. Update kernel before. Or change hardware."
 fi
 
-# If the linux distribution is not debian and centos, then exit
-if [ ! -f /etc/debian_version ] && [ ! -f /etc/centos-release ]; then
-  errorExit "Not supported linux distribution. Only Debian and CentOS are currently supported"!
-fi
 
 greenMessage "This is the automatic installer for latest SinusBot. USE AT YOUR OWN RISK"!
 sleep 1
@@ -602,7 +598,7 @@ if [ "$DISCORD" == "false" ]; then
 
 greenMessage "Searching latest TS3-Client build for hardware type $MACHINE with arch $ARCH."
 
-VERSION="3.5.6"
+VERSION="3.6.2"
 
 DOWNLOAD_URL_VERSION="https://dl.4players.de/ts/releases/$VERSION/TeamSpeak3-Client-linux_$ARCH-$VERSION.run"
  STATUS=$(wget --server-response -L $DOWNLOAD_URL_VERSION 2>&1 | awk '/^  HTTP/{print $2}')
